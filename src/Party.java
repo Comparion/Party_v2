@@ -47,9 +47,17 @@ public class Party {
     {
         System.out.println("Podaj numer telefonu:");
         int phoneNumber = Integer.valueOf(scanner.nextLine());
-        Guest guest = phoneToGuest.get(phoneNumber);
+        try {
+            Guest guest = phoneToGuest.get(phoneNumber);
+            guest.displayGuestInformaion();
+        }
+        catch (NullPointerException e)
+        {
+            System.out.println("Podany numer telefonu nie istnieje!");
+        }
 
-        guest.displayGuestInformaion();
+
+
     }
 
     public void displayGuests() {
